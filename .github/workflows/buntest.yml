@@ -19,7 +19,7 @@ jobs:
         bun-version: latest
 
     - name: Install Bun
-      run: bun install
+      run: cd src && bun install
 
     - name: Run Bun on app.ts
       run: bun run src/app.ts

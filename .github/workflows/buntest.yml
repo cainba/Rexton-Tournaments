@@ -15,4 +15,4 @@ jobs:
         with:
             bun-version: latest
       - run: bun install
-      - run: bun ./src/app.ts
+      - run: bun src/app.ts

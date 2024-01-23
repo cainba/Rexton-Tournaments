@@ -1,18 +1,25 @@
-name: Test Bun
+name: Test With Bun
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  build-and-start:
+  run_bun:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
-        with:
-            bun-version: latest
-      - run: bun install
-      - run: bun ./src/app.ts
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set Up Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Install Bun
+      run: bun install
+
+    - name: Run Bun on app.ts
+      run: bun run src/app.ts

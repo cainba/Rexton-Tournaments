@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/rxt-web" # Location of package manifests
+    schedule:
+      interval: "daily"
+      labels: 
+      - "dependencies"
+      reiewers:
+      - "cainbryce208"

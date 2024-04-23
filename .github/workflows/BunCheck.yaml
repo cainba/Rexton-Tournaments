@@ -16,4 +16,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
       - run: cd rxt
+      - run: echo $pwd && ls --all && echo $cwd
       - run: bun run rxt-build

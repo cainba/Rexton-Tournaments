@@ -2,12 +2,11 @@
   "folders": [
     {
       "name": "Rxt Web Source",
-      "path": "../rxt"
+      "path": ".."
     }
   ],
   "settings": {
     "files.exclude": {
-      "**/.git": true,
       "**/bun.lockb": true,
       "**/node_modules": true,
       "**/*.md": true

@@ -1,11 +1,12 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../src"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "Rxt-Tourn Web App Source",
+      "path": "../rxt"
+    },
+    {
+      "name": "Rxt-Tourn Policies",
+      "path": "../policies"
+    }
+  ]
 }

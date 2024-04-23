@@ -1,0 +1,20 @@
+{
+  "name": "@rxt/server",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A new module",
+  "main": "index.js",
+  "dependencies": {
+    "@rxt/client": "workspace:packages/client"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "bun-types": "latest"
+  },
+  "author": {
+    "name": "cainbryce208",
+    "email": "cainbryce208@gmail.com"
+  }
+}

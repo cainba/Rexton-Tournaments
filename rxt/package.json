@@ -1,0 +1,12 @@
+{
+  "name": "@rxt/app",
+  "private": "true",
+  "module": "rxt.ts",
+  "type": "module",
+  "workspaces": [
+    "packages/server",
+    "packages/db",
+    "packages/client",
+    "packages/public"
+  ]
+}

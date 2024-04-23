@@ -1,0 +1,15 @@
+logLevel = "debug"
+telemetry = false
+
+[install]
+optional = true
+dev = true
+peer = true
+production = false
+auto = "auto"
+globalDir = "~/.bun/install/global"
+globalBinDir = "~/.bun/bin"
+
+[run]
+silent = true
+

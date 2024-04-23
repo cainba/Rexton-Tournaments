@@ -1,22 +1,37 @@
 {
   "folders": [
     {
-      "name": "Rxt Web Source",
-      "path": ".."
+      "name": "Source Pakcages",
+      "path": "./packages"
+    },
+    {
+      "name": "Github Actions",
+      "path": "../.github"
+    },
+    {
+      "name": "Git Directory",
+      "path": "../.git"
+    },
+    {
+      "name": "VS Code Settings",
+      "path": "./.vscode"
+    },
+    {
+      "name": "Scripts",
+      "path": "./scripts"
+    },
+    {
+      "name": "Node Modules",
+      "path": "./node_modules"
     }
   ],
   "settings": {
     "files.exclude": {
-      "**/bun.lockb": true,
-      "**/node_modules": true,
-      "**/*.md": true
+      "**/bun.lockb": true
     },
-    "explorer.fileNesting.enabled": false,
     "explorer.sortOrder": "foldersNestsFiles",
-    "explorer.autoReveal": false,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 60,
-    "explorer.excludeGitIgnore": false
+    "files.autoSaveDelay": 60
   },
   "extensions": {
     "recommendations": [

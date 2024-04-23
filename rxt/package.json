@@ -8,5 +8,8 @@
     "packages/db",
     "packages/client",
     "packages/public"
-  ]
+  ],
+  "scripts": {
+    "rxt-build": "bun run ./scripts/build.ts"
+  }
 }

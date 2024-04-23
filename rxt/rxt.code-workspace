@@ -40,9 +40,5 @@
       "oven.bun-vscode",
       "w0o0o.bun-scripts"
     ]
-  },
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [""]
   }
 }

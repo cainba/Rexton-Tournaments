@@ -3,10 +3,12 @@ on:
   push:
     branches:
       - dev
+      - staging
       - production
   pull_request:
     branches:
       - dev
+      - staging
       - production
 jobs:
   build:
@@ -24,4 +26,4 @@ jobs:
           cd rxt
           bun build --entrypoints "./index.ts" "./packages/client/index.ts" "./packages/server/index.ts" "./packages/public/index.ts" "./packages/db/index.ts" --outdir "./dist" --format "esm" --minify --target "bun" --splitting
           bun run ./dist/index.js
-          0
+          exit 0

@@ -23,5 +23,5 @@ jobs:
         run: |
           cd rxt
           bun build --entrypoints "./index.ts" "./packages/client/index.ts" "./packages/server/index.ts" "./packages/public/index.ts" "./packages/db/index.ts" --outdir "./dist" --format "esm" --minify --target "bun" --splitting
-          bun --watch run ./dist/index.js
+          bun run ./dist/index.js
           0

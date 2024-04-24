@@ -1,44 +1,8 @@
 {
   "folders": [
     {
-      "name": "Source Pakcages",
-      "path": "./packages"
-    },
-    {
-      "name": "Github Actions",
-      "path": "../.github"
-    },
-    {
-      "name": "Git Directory",
-      "path": "../.git"
-    },
-    {
-      "name": "VS Code Settings",
-      "path": "./.vscode"
-    },
-    {
-      "name": "Scripts",
-      "path": "./scripts"
-    },
-    {
-      "name": "Node Modules",
-      "path": "./node_modules"
+      "name": "Source Files",
+      "path": ".."
     }
-  ],
-  "settings": {
-    "files.exclude": {
-      "**/bun.lockb": true
-    },
-    "explorer.sortOrder": "foldersNestsFiles",
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 60
-  },
-  "extensions": {
-    "recommendations": [
-      "tamasfe.even-better-toml",
-      "pandy.bun",
-      "oven.bun-vscode",
-      "w0o0o.bun-scripts"
-    ]
-  }
+  ]
 }

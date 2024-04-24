@@ -9,7 +9,8 @@
     "packages/client",
     "packages/public"
   ],
-  "scripts": {
-    "rxt-build": "bun run ./scripts/build.ts"
+  "devDependencies": {
+    "bun": "^1.1.4",
+    "typescript": "latest"
   }
 }

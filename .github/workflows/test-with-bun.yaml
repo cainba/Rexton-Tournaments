@@ -17,5 +17,5 @@ jobs:
         run: bun install
         working-directory: rxt
       - name: Build
-        run: bun build rxt.js --outdir dist --format=esm --minify --sourcemap="inline"
+        run: bun build "./rxt.js" --outdir dist --format=esm --minify --sourcemap="inline"
         working-directory: rxt

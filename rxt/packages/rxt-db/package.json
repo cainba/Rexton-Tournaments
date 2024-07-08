@@ -1,0 +1,8 @@
+{
+    "name": "rxt-db",
+    "version": "0.0.1",
+    "private": "true",
+    "description": "Database module for RXT",
+    "module": "rxtDB.js",
+    "type":"module"
+}

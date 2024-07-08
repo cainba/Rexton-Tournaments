@@ -1,0 +1,12 @@
+{
+    "name": "rxt-server",
+    "type": "module",
+    "version": "1.0.0",
+    "private": true,
+    "main": "rxtServer.js",
+    "exports": {
+        "routers/view": "./routes/view.js",
+        "routers/api": "./routes/api.js",
+        "server": "./rxtServer.js"
+    }
+}

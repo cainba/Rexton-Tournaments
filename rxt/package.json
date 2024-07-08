@@ -1,19 +1,24 @@
 {
-  "name": "@rxt/app",
-  "private": "true",
-  "module": "rxt.ts",
+  "name": "rxt",
+  "module": "rxt.js",
   "type": "module",
-  "workspaces": [
-    "packages/server",
-    "packages/db",
-    "packages/client",
-    "packages/public"
-  ],
   "devDependencies": {
-    "bun": "^1.1.4",
-    "typescript": "latest"
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "paths": {
+    "@rxt/server/*": ["./packages/rxt-server/*"],
+    "@rxt/public/*": ["./packages/rxt-public/*"],
+    "@rxt/helpers/*": ["./packages/rxt-helpers/*"],
+    "@rxt/db/*": ["./packages/rxt-db/*"],
+    "@rxt/client/*": ["./packages/rxt-client/*"]
   },
   "scripts": {
-    "clean": "rm -f -v -R dist && rm -f -v -R node_modules"
+    "dev": "bun --hot rxt.js"
   }
 }

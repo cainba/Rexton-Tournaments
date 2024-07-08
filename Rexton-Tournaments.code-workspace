@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Rexton-Tournaments Repo",
+			"path": "."
+		},
+		{
+			"name": "Rexton-Tournaments Source", 
+			"path": "rxt"
+		}
+	],
+	"settings": {}
+}

@@ -1,15 +1,3 @@
-logLevel = "debug"
-telemetry = false
-
-[install]
-optional = true
-dev = true
-peer = true
-production = false
-auto = "auto"
-globalDir = "~/.bun/install/global"
-globalBinDir = "~/.bun/bin"
-
-[run]
-silent = true
-
+[define]
+NODE_ENV="production"
+BUN_CONFIG_VERBOSE_FETCH="1"

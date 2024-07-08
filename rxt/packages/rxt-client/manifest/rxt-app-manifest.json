@@ -1,0 +1,7 @@
+{
+    "name": "Rexton Gaming",
+    "short_name": "RGT",
+    "start_url": "/home",
+    "display": "standalone",
+    "background_color": "#f7f7f7"
+}

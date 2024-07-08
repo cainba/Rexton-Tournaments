@@ -10,7 +10,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-        with: ${{ github.ref }}
       - uses: oven-sh/setup-bun@v2
         with:
          bun-version: "canary"

@@ -1,0 +1,24 @@
+name: deploy-to-production
+run-name: Deploy to Production
+on:
+  push:
+    branches:
+      - production
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+        env:
+          known-hosts: |
+            Host ${{ secrets.VPS_IP }}
+            StrictHostKeyChecking no
+            UserKnownHostsFile=/dev/null
+      - name: Deploy to production
+        run: scp -r ./* ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.VPS_IP }}:${{ secrets.DEPLOY_PATH }}

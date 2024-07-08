@@ -15,8 +15,8 @@ jobs:
         with:
          bun-version: "canary"
       - name: Install Dependencies
-        run: bun install
+        run: |
+          cd $GITHUB_WORKSPACE/rxt
+          bun install
       - name: Build
         run: bun build
-      
-        

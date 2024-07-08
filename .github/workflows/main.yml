@@ -1,0 +1,24 @@
+name: Lint Code
+on:
+  push:
+  pull_request:
+    branches: [production,staging,dev]
+jobs:
+  build:
+    name: Lint Code
+    runs-on: self-hosted
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Lint Code Base
+        uses: super-linter/super-linter@v5
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: dev
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -1,0 +1,22 @@
+name: test-with-bun
+run-name: Install Dependencies and Build With Bun caused by ${{ github.event_name}} on ${{ github.ref }}
+on:
+  push:
+    branches:
+      - dev
+      - staging
+jobs:
+  build-test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+        with: ${{ github.ref }}
+      - uses: oven-sh/setup-bun@v2
+        with:
+         bun-version: "canary"
+      - name: Install Dependencies
+        run: bun install
+      - name: Build
+        run: bun build
+      
+        

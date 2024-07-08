@@ -1,5 +1,4 @@
 name: test-with-bun
-run-name: Install Dependencies and Build With Bun caused by ${{ github.event_name}} on ${{ github.ref }}
 on:
   push:
     branches:
@@ -18,3 +17,5 @@ jobs:
         working-directory: rxt
       - name: Build
         run: bun build ./rxt.js --outdir dist --format=esm --minify --sourcemap="inline"
+        working-directory: rxt
+

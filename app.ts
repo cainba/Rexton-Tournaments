@@ -1,11 +1,9 @@
 import type { BunFile } from "bun"
-
-const serverDir = "/var/www/rxt/"
 Bun.serve({
     async fetch(request) {
         const reqURL: URL = new URL(request.url)
         const reqFileName: string = reqURL.pathname.split("/").pop() || ""
-        const reqFileSource: BunFile  = Bun.file(serverDir + reqFileName)
+        const reqFileSource: BunFile  = Bun.file("/src/assets" + reqURL.pathname)
         if (reqFileName != "" && await reqFileSource.exists()) {
             return new Response(reqFileSource, {
                 headers: {
@@ -14,7 +12,7 @@ Bun.serve({
             })
         }
         if(reqFileName == "") {
-            return new Response(Bun.file("./index.html"),{
+            return new Response(Bun.file("/src/assets/views/index.html"),{
                 headers: {
                     "Content-Type": "text/html"
                 }

@@ -9,51 +9,29 @@ on:
 jobs:
   checkout:
     runs-on: self-hosted
-    name: Checkout Repository
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-  build-project:
-    runs-on: self-hosted
-    needs: checkout
-    name: Build Project
-    steps:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
-            bun-version: "canary"
+          bun-version: "canary"
+
       - name: Install Dependencies
         run: bun install
+
       - name: Build Project
         run: bun run build-proj
 
-  deploy-test:
-    runs-on: self-hosted
-    needs: build-project
-    name: Deploy Test
-    steps:
       - name: Deploy Test
         run: cp -r ./build/* /var/www/rxt
 
-  run-server:
-    runs-on: self-hosted
-    needs: deploy-test
-    name: Run Server
-    steps:
-     - name: Restart Server
-       run: |
-         sudo chmod -R 770 /var/www/rxt
-         if systemctl is-active --quiet rtx; then
-         sudo systemctl stop rxt && sudo systemctl start rxt;
-         else
-         sudo systemctl start rxt;
-         fi
-
-  notify:
-    runs-on: self-hosted
-    needs: run-server
-    name: Notify
-    steps:
-      - name: Notify
-        run: echo "Deployment Completed"
+      - name: Restart Server
+        run: |
+          sudo chmod -R 770 /var/www/rxt
+          if systemctl is-active --quiet rxt; then
+            sudo systemctl stop rxt && sudo systemctl start rxt;
+          else
+            sudo systemctl start rxt;
+          fi

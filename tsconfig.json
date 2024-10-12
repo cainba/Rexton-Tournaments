@@ -18,6 +18,49 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+    "baseUrl": "./src",
+    "paths": {
+      "src/*": [
+        "./*"
+      ],
+      "src": [
+        "."
+      ],
+      "src/assets/*": [
+        "./assets/*"
+      ],
+      "src/assets/css/*": [
+        "./assets/css/*"
+      ],
+      "src/assets/fonts/*": [
+        "./assets/fonts/*"
+      ],
+      "src/assets/images/*": [
+        "./assets/images/*"
+      ],
+      "src/assets/js/*": [
+        "./assets/js/*"
+      ],
+      "src/assets/views/*": [
+        "./assets/views/*"
+      ]
+    }
+  },
+  "buildOptions": {
+    "include": [
+      "./*.ts",
+      "./*.tsx",
+      "./*.js",
+      "./*.html",
+      "./*.css"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist",
+      "build"
+    ],
+    "verbose": true
+  },
+  "compileOnSave": true
 }

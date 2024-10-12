@@ -7,57 +7,59 @@ on:
       - dev
 
 jobs:
-    checkout:
-        runs-on: self-hosted
-        name: Checout Repository
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v4
-    setup-bun:
-        runs-on: self-hosted
-        name: Setup Bun
-        steps:
-            - name: Setup Bun
-              uses: actions/setup-bun@v2
-              with:
-                  version: "canary"
+  checkout:
+    runs-on: self-hosted
+    name: Checkout Repository
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    install-dependencies:
-        runs-on: self-hosted
-        depends-on: setup-bun
-        name: Install Dependencies
-        steps:
-            - name: Install Dependencies
-              run: bun install
+  setup-bun:
+    runs-on: self-hosted
+    needs: checkout
+    name: Setup Bun
+    steps:
+      - name: Setup Bun
+        uses: actions/setup-bun@v2
+        with:
+          version: "canary"
 
-    build-project:
-        runs-on: self-hosted
-        depends-on: install-dependencies
-        name: Build Project
-        steps:
-            - name: Build Project
-              run: bun run build-proj
+  install-dependencies:
+    runs-on: self-hosted
+    needs: setup-bun
+    name: Install Dependencies
+    steps:
+      - name: Install Dependencies
+        run: bun install
 
-    deploy-test:
-        runs-on: self-hosted
-        depends-on: build-project
-        name: Deploy Test
-        steps:
-            - name: Deploy Test
-              run: cp -r ./build/* /var/www/rxt
+  build-project:
+    runs-on: self-hosted
+    needs: install-dependencies
+    name: Build Project
+    steps:
+      - name: Build Project
+        run: bun run build-proj
 
-    run-server:
-        runs-on: self-hosted
-        depends-on: deploy-test
-        name: Run Server
-        steps:
-            - name: Run Server
-              run: systemctl stop rxt && systemctl start rxt
+  deploy-test:
+    runs-on: self-hosted
+    needs: build-project
+    name: Deploy Test
+    steps:
+      - name: Deploy Test
+        run: cp -r ./build/* /var/www/rxt
 
-    notify:
-        runs-on: self-hosted
-        depends-on: run-server
-        name: Notify
-        steps:
-            - name: Notify
-              run: echo "Deployment Completed"
+  run-server:
+    runs-on: self-hosted
+    needs: deploy-test
+    name: Run Server
+    steps:
+      - name: Run Server
+        run: systemctl stop rxt && systemctl start rxt
+
+  notify:
+    runs-on: self-hosted
+    needs: run-server
+    name: Notify
+    steps:
+      - name: Notify
+        run: echo "Deployment Completed"

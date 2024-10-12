@@ -13,6 +13,14 @@ Bun.serve({
                 }
             })
         }
+        if(reqFileName == "") {
+            return new Response(Bun.file("./index.html"),{
+                headers: {
+                    "Content-Type": "text/html"
+                }
+            })
+        }
+
         return new Response("Not Found", {
             status: 404,
             statusText: "Not Found",

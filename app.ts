@@ -1,4 +1,4 @@
-import { FileSystemRouter } from "bun"
+import { FileSystemRouter, type BunFile } from "bun"
 
 const resourceRouter = new FileSystemRouter({
     dir: "./public",

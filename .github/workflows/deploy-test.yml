@@ -12,36 +12,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Cache Bun
-        uses: actions/cache@v3
-        with:
-          path: ~/.bun
-          key: bun-${{ runner.os }}-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            bun-${{ runner.os }}-
-
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: "canary"
-
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            ~/.bun/install/cache/v1
-          key: dependencies-${{ runner.os }}-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            dependencies-${{ runner.os }}-
-
+        uses: oven-sh/setup-bun@v2
       - name: Install Dependencies
         run: bun install
-
       - name: Build Project
         run: bun run build-proj
-
       - name: Deploy Test
         run: |
              sudo cp -r ./build/* /var/www/rxt

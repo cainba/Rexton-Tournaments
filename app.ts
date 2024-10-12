@@ -18,7 +18,7 @@ Bun.serve({
                 }
             })
         }
-        if (reqFileName == "/") {
+        if (reqURL.pathname == "/") {
             if(resourceRouter.match(reqURL.pathname)?.src){
                 console.log(resourceRouter.match(reqURL.pathname)?.src)
                 return new Response(resourceRouter.match(reqURL.pathname)?.src, {

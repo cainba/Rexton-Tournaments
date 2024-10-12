@@ -2,7 +2,11 @@ Bun.serve({
     fetch(request) {
         const reqURL = new URL(request.url)
         if(reqURL.pathname === '/hello') {
-            return new Response('Hello World!')
+            return new Response("<h1>Hello World</h1",{
+                headers: {
+                    "Content-Tyoe": "text/html"
+                }
+            })
         }
     },
     port:443,

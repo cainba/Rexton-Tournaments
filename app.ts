@@ -1,18 +1,24 @@
-import type { BunFile } from "bun"
+const resourceRouter = new FileSystemRouter({
+    dir: "./public",
+    style: "nextjs",
+    origin: "https://rextongaming.com"
+})
 Bun.serve({
     async fetch(request) {
         const reqURL: URL = new URL(request.url)
         const reqFileName: string = reqURL.pathname.split("/").pop() || ""
-        const reqFileSource: BunFile  = Bun.file("/assets" + reqURL.pathname)
+        const reqFileSource: BunFile = Bun.file("./assets" + reqURL.pathname)
         if (reqFileName != "" && await reqFileSource.exists()) {
-            return new Response(reqFileSource, {
+           const file = resourceRouter.match(reqURL.pathname)?.src
+            const reource = Bun.file(`${file}`)
+            return new Response(reource, {
                 headers: {
-                    "Content-Type": reqFileSource.type
+                    "Content-Type": reource.type
                 }
             })
         }
-        if(reqFileName == "") {
-            return new Response(Bun.file("/assets/views/index.html"),{
+        if (reqFileName == "") {
+            return new Response(Bun.file("./assets/views/index.html"), {
                 headers: {
                     "Content-Type": "text/html"
                 }

@@ -27,9 +27,6 @@ jobs:
       - name: Archive Project
         run: tar -czf build.tar.gz ./build
 
-      - name: Add VPS to Known Hosts
-        run: ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
-
       - name: Deploy Project
         run: scp -i ${{ secrets.VPS_KEY }} build.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }}:/var/www/rxt
 

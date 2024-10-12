@@ -18,8 +18,9 @@ Bun.serve({
                 }
             })
         }
-        if (reqFileName == "") {
+        if (reqFileName == "/") {
             if(resourceRouter.match(reqURL.pathname)?.src){
+                console.log(resourceRouter.match(reqURL.pathname)?.src)
                 return new Response(resourceRouter.match(reqURL.pathname)?.src, {
                     headers: {
                         "Content-Type": resourceRouter.match(reqURL.pathname)?.type

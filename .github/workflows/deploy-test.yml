@@ -42,9 +42,7 @@ jobs:
     name: Run Server
     steps:
       - name: Run Server
-        run: ||
-        sudo systemctl stop rtx
-        sudo systemclt start rtx
+        run: sudo systemctl stop rtx && sudo systemclt start rtx
 
   notify:
     runs-on: self-hosted

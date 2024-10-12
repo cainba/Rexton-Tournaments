@@ -1,0 +1,46 @@
+name: deploy-test
+run-name: Deploy Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    deploy-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Bun
+                uses: oven-sh/setup-bun@v2
+                with:
+                    bun-version: "canary"
+
+            - name: Install Dependencies
+                    run: bun install
+
+            - name: Build Project
+                run: bun build
+
+            - name: Archive Project
+                run: tar -czf build.tar.gz ./build
+
+            - name: Add VPS to Known Hosts
+                run: ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+
+            - name: Deploy Project
+                run: scp -i ${{ secrets.VPS_KEY }} build.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }}:/var/www/rxt
+
+            - name: Extract Project
+                run: ssh -i ${{ secrets.VPS_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} "tar -xzf /var/www/rxt/build.tar.gz -C /var/www/rxt"
+
+            - name: Clean Up
+                run: rm build.tar.gz
+
+            - name: Restart Server
+                run: ssh -i ${{ secrets.VPS_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} "sudo systemctl restart rxt"
+
+            - name: Done
+                run: echo "Deployment Complete"

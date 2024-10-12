@@ -1,0 +1,17 @@
+logLevel="error"
+
+telemetry = false
+
+[install]
+peer=true
+dev=true
+
+[run]
+shell="bun"
+bun=true
+
+[define]
+BUN_CONFIG_VERBOSE_FETCH=1
+TMPDIR="/tmp"
+BUN_CONFIG_MAX_HTTP_REQUESTS=65000
+DO_NOT_TRACK=1

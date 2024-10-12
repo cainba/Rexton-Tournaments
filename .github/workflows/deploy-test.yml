@@ -43,6 +43,7 @@ jobs:
     steps:
      - name: Restart Server
        run: |
+         sudo chmod -R 770 /var/www/rxt
          if systemctl is-active --quiet rtx; then
          sudo systemctl stop rxt && sudo systemctl start rxt;
          else

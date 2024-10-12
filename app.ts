@@ -1,3 +1,4 @@
+import { file } from "bun"
 
 const resourceRouter = new Bun.FileSystemRouter({
     dir: `${import.meta.dir}/public`,
@@ -10,7 +11,7 @@ Bun.serve({
         const reqFileName: string = reqURL.pathname.split("/").pop() || ""
         const reqFileSource = Bun.file("./assets" + reqURL.pathname)
         if (reqFileName != "" && await reqFileSource.exists()) {
-           const file = resourceRouter.match(reqURL.pathname)?.src
+            const file = resourceRouter.match(reqURL.pathname)?.src
             const reource = Bun.file(`${file}`)
             return new Response(reource, {
                 headers: {
@@ -19,11 +20,12 @@ Bun.serve({
             })
         }
         if (reqURL.pathname == "/") {
-            if(resourceRouter.match(reqURL.pathname)?.src){
+            const fileResource = Bun.file(`${resourceRouter.match(reqURL.pathname)?.src}`)
+            if (await fileResource.exists()) {
                 console.log(resourceRouter.match(reqURL.pathname)?.src)
-                return new Response(resourceRouter.match(reqURL.pathname)?.src, {
+                return new Response(fileResource, {
                     headers: {
-                        "Content-Type": resourceRouter.match(reqURL.pathname)?.type
+                        "Content-Type": fileResource.type
                     }
                 })
             }

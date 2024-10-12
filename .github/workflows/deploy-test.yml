@@ -42,7 +42,7 @@ jobs:
     name: Run Server
     steps:
       - name: Run Server
-        run: systemctl stop rxt && systemctl start rxt
+        run: systemctl restart rxt
 
   notify:
     runs-on: self-hosted

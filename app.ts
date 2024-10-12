@@ -3,7 +3,7 @@ Bun.serve({
     async fetch(request) {
         const reqURL: URL = new URL(request.url)
         const reqFileName: string = reqURL.pathname.split("/").pop() || ""
-        const reqFileSource: BunFile  = Bun.file("/src/assets" + reqURL.pathname)
+        const reqFileSource: BunFile  = Bun.file("/assets" + reqURL.pathname)
         if (reqFileName != "" && await reqFileSource.exists()) {
             return new Response(reqFileSource, {
                 headers: {
@@ -12,7 +12,7 @@ Bun.serve({
             })
         }
         if(reqFileName == "") {
-            return new Response(Bun.file("/src/assets/views/index.html"),{
+            return new Response(Bun.file("/assets/views/index.html"),{
                 headers: {
                     "Content-Type": "text/html"
                 }

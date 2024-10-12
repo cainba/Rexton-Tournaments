@@ -19,11 +19,13 @@ Bun.serve({
             })
         }
         if (reqFileName == "") {
-            return new Response(Bun.file("./assets/views/index.html"), {
-                headers: {
-                    "Content-Type": "text/html"
-                }
-            })
+            if(resourceRouter.match(reqURL.pathname)?.src){
+                return new Response(resourceRouter.match(reqURL.pathname)?.src, {
+                    headers: {
+                        "Content-Type": resourceRouter.match(reqURL.pathname)?.type
+                    }
+                })
+            }
         }
 
         return new Response("Not Found", {

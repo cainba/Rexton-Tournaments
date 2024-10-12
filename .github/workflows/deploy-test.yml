@@ -44,10 +44,10 @@ jobs:
      - name: Restart Server
        run: |
          if systemctl is-active --quiet rtx; then
-        sudo systemctl stop rtx && sudo systemctl start rtx;
-      else
-        sudo systemctl start rtx;
-      fi
+         sudo systemctl stop rtx && sudo systemctl start rtx;
+         else
+         sudo systemctl start rtx;
+         fi
 
   notify:
     runs-on: self-hosted

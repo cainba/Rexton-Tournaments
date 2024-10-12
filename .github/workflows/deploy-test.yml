@@ -43,14 +43,14 @@ jobs:
         run: bun run build-proj
 
       - name: Deploy Test
-        run: cp -r ./build/* /var/www/rxt
+        run: |
+             sudo chmod -R 770 /var/www/rxt
+             sudo cp -r ./build/* /var/www/rxt
 
       - name: Restart Server
         run: |
-          rm -rf /var/ww/rxt/*
-          sudo chmod -R 770 /var/www/rxt
-          if systemctl is-active --quiet rxt; then
-            sudo systemctl stop rxt && sudo systemctl start rxt;
-          else
-            sudo systemctl start rxt;
-          fi
+             if systemctl is-active --quiet rxt; then
+             sudo systemctl stop rxt && sudo systemctl start rxt;
+             else
+             sudo systemctl start rxt;
+             fi

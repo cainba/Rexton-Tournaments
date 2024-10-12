@@ -36,13 +36,13 @@ jobs:
       - name: Deploy Test
         run: cp -r ./build/* /var/www/rxt
 
-  run-server:
-    runs-on: self-hosted
-    needs: deploy-test
-    name: Run Server
-    steps:
-     - name: Restart Server
-       run: sudo systemctl restart rtx
+      - name: Restart Server
+        run: |
+          if systemctl is-active --quiet rtx; then
+            sudo systemctl stop rtx && sudo systemctl start rtx;
+          else
+            sudo systemctl start rtx;
+          fi
 
   notify:
     runs-on: self-hosted

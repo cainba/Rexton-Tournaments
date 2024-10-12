@@ -20,7 +20,7 @@ jobs:
     name: Setup Bun
     steps:
       - name: Setup Bun
-        uses: actions/setup-bun@v2
+        uses: oven-sh/setup-bun@v2
         with:
           version: "canary"
 

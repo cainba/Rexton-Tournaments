@@ -9,7 +9,7 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "build-proj": "  bun build app.ts --production --out-dir ./build --format esm --minify --sourcemap=inline",
+    "build-proj": "  bun build app.ts --production --outdir ./build --format esm --minify --sourcemap=inline",
     "dev": "bun --hot app.ts"
   }
 }

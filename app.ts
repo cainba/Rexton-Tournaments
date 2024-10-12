@@ -1,6 +1,5 @@
-import { FileSystemRouter, type BunFile } from "bun"
 
-const resourceRouter = new FileSystemRouter({
+const resourceRouter = new Bun.FileSystemRouter({
     dir: "./public",
     style: "nextjs",
     origin: "https://rextongaming.com"
@@ -9,7 +8,7 @@ Bun.serve({
     async fetch(request) {
         const reqURL: URL = new URL(request.url)
         const reqFileName: string = reqURL.pathname.split("/").pop() || ""
-        const reqFileSource: BunFile = Bun.file("./assets" + reqURL.pathname)
+        const reqFileSource = Bun.file("./assets" + reqURL.pathname)
         if (reqFileName != "" && await reqFileSource.exists()) {
            const file = resourceRouter.match(reqURL.pathname)?.src
             const reource = Bun.file(`${file}`)

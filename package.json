@@ -8,6 +8,9 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
+  "dependencies": {
+    "bun": "latest"
+  },
   "scripts": {
     "build-proj": "bun build app.ts --production --outdir ./build --format esm --minify --sourcemap=inline --publicPath='https://rextongaming.com' && cp -R ./public ./build/",
     "dev": "bun --hot app.ts"

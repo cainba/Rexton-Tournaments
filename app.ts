@@ -5,11 +5,12 @@ Bun.serve({
             return new Response('Hello World!')
         }
     },
-    port: Bun.env.PORT,
-    hostname: Bun.env.HOSTNAME,
+    port:443,
+    hostname:"0.0.0.0",
     tls: {
-        key: Bun.env.TLS_KEY ? Bun.file(Bun.env.TLS_KEY) : undefined,
-        cert: Bun.env.TLS_CERT ? Bun.file(Bun.env.TLS_CERT) : undefined
+        key:Bun.file("/etc/rxt/ssl/rxt_key.pem"),
+        cert:Bun.file("/etc/rxt/ssl/rxt_cert.pem"),
+        serverName: "rextongaming.com"
     },
     websocket: {
        open(ws) {

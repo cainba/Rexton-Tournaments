@@ -1,6 +1,6 @@
 
 const resourceRouter = new Bun.FileSystemRouter({
-    dir: "./public",
+    dir: `${import.meta.dir}/public`,
     style: "nextjs",
     origin: "https://rextongaming.com"
 })

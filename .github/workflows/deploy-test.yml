@@ -14,29 +14,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-  setup-bun:
-    runs-on: self-hosted
-    needs: checkout
-    name: Setup Bun
-    steps:
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-         bun-version: "canary"
-
-  install-dependencies:
-    runs-on: self-hosted
-    needs: setup-bun
-    name: Install Dependencies
-    steps:
-      - name: Install Dependencies
-        run: bun install
-
   build-project:
     runs-on: self-hosted
-    needs: install-dependencies
+    needs: checkout
     name: Build Project
     steps:
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+            bun-version: "canary"
+      - name: Install Dependencies
+        run: bun install
       - name: Build Project
         run: bun run build-proj
 

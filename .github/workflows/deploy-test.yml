@@ -7,37 +7,57 @@ on:
       - dev
 
 jobs:
-  deploy-test:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    checkout:
+        runs-on: self-hosted
+        name: Checout Repository
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+    setup-bun:
+        runs-on: self-hosted
+        name: Setup Bun
+        steps:
+            - name: Setup Bun
+              uses: actions/setup-bun@v2
+              with:
+                  version "canary"
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: "canary"
+    install-dependencies:
+        runs-on: self-hosted
+        depends-on: setup-bun
+        name: Install Dependencies
+        steps:
+            - name: Install Dependencies
+              run: bun install
 
-      - name: Install Dependencies
-        run: bun install
+    build-project:
+        runs-on: self-hosted
+        depends-on: install-dependencies
+        name: Build Project
+        steps:
+            - name: Build Project
+              run: bun run build-proj
 
-      - name: Build Project
-        run: bun run build-proj
+    deploy-test:
+        runs-on: self-hosted
+        depends-on: build-project
+        name: Deploy Test
+        steps:
+            - name: Deploy Test
+              run: cp -r ./build/* /var/www/rxt
 
-      - name: Archive Project
-        run: tar -czf build.tar.gz ./build
+    run-server:
+        runs-on: self-hosted
+        depends-on: deploy-test
+        name: Run Server
+        steps:
+            - name: Run Server
+              run: systemctl stop rxt && systemctl start rxt
 
-      - name: Deploy Project
-        run: scp -i ${{ secrets.VPS_KEY }} build.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }}:/var/www/rxt
-
-      - name: Extract Project
-        run: ssh -i ${{ secrets.VPS_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} "tar -xzf /var/www/rxt/build.tar.gz -C /var/www/rxt"
-
-      - name: Clean Up
-        run: rm build.tar.gz
-
-      - name: Restart Server
-        run: ssh -i ${{ secrets.VPS_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} "sudo systemctl restart rxt"
-
-      - name: Done
-        run: echo "Deployment Complete"
+    notify:
+        runs-on: self-hosted
+        depends-on: run-server
+        name: Notify
+        steps:
+            - name: Notify
+              run: echo "Deployment Completed"

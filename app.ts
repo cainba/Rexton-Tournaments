@@ -2,9 +2,9 @@ Bun.serve({
     fetch(request) {
         const reqURL = new URL(request.url)
         if(reqURL.pathname === '/hello') {
-            return new Response("<h1>Hello World</h1",{
+            return new Response(Bun.file("index.html"), {
                 headers: {
-                    "Content-Tyoe": "text/html"
+                    "Content-Type": "text/html"
                 }
             })
         }

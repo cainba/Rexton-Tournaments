@@ -22,7 +22,7 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          version: "canary"
+         bun-version: "canary"
 
   install-dependencies:
     runs-on: self-hosted

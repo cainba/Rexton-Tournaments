@@ -44,11 +44,11 @@ jobs:
 
       - name: Deploy Test
         run: |
-             sudo chmod -R 770 /var/www/rxt
              sudo cp -r ./build/* /var/www/rxt
 
       - name: Restart Server
         run: |
+             sudo chmod -R 770 /var/www/rxt
              if systemctl is-active --quiet rxt; then
              sudo systemctl stop rxt && sudo systemctl start rxt;
              else

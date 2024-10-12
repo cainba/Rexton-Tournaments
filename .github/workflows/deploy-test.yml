@@ -42,15 +42,7 @@ jobs:
     name: Run Server
     steps:
      - name: Restart Server
-        run: sudo systemctl restart rtx
-
-      - name: Run Server
-        run: |
-        if systemctl is-active --quiet rtx; then
-            sudo systemctl stop rtx && sudo systemctl start rtx;
-        else
-            sudo systemctl start rtx;
-        fi
+       run: sudo systemctl restart rtx
 
   notify:
     runs-on: self-hosted

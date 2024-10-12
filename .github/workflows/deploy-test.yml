@@ -4,7 +4,7 @@ run-name: Deploy Test
 on:
   push:
     branches:
-      - production
+      - dev
 
 jobs:
     deploy-test:

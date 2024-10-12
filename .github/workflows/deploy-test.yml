@@ -44,9 +44,9 @@ jobs:
      - name: Restart Server
        run: |
          if systemctl is-active --quiet rtx; then
-         sudo systemctl stop rtx && sudo systemctl start rtx;
+         sudo systemctl stop rxt && sudo systemctl start rxt;
          else
-         sudo systemctl start rtx;
+         sudo systemctl start rxt;
          fi
 
   notify:

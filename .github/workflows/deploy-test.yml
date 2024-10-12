@@ -43,7 +43,7 @@ jobs:
         run: ls node_modules
 
       - name: Build Project
-        run: bun build app.ts --production --outdir ./build --format esm --minify --sourcemap=inline --publicPath='https://rextongaming.com' && cp -R ./public ./build/
+        run: bun install && bun build app.ts --production --outdir ./build --format esm --minify --sourcemap=inline --publicPath='https://rextongaming.com' && cp -R ./public ./build/
       - name: Deploy Test
         run: |
              sudo cp -r ./build/* /var/www/rxt

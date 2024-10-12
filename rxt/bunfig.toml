@@ -1,3 +1,0 @@
-[define]
-NODE_ENV="production"
-BUN_CONFIG_VERBOSE_FETCH="1"

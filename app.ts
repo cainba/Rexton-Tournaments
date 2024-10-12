@@ -1,3 +1,5 @@
+import { FileSystemRouter } from "bun"
+
 const resourceRouter = new FileSystemRouter({
     dir: "./public",
     style: "nextjs",

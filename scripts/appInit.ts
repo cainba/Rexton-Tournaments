@@ -8,9 +8,7 @@ const clientBuildConfig: BuildConfig = {
     experimentalHtml: true,
     splitting: true,
     format: "esm",
-    minify: true,
-    footer: "//rextongaming.com -- by Bryce Cain",
-    banner: " === BUILDING CLIENT === "
+    minify: true
 }
 
 const serverBuildConfig: BuildConfig = {
@@ -20,8 +18,6 @@ const serverBuildConfig: BuildConfig = {
     splitting: true,
     format: "esm",
     minify: true,
-    banner: "/* === BUILDING SERVER==== */",
-    footer: "//rextongaming.com -- by Bryce Cain"
 }
 
 const clientBuild: BuildOutput = await Bun.build(clientBuildConfig)

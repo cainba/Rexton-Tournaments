@@ -45,10 +45,10 @@ jobs:
 
       - name: Fix Ownership
         run: |
-          ssh -i ~/.ssh/id_ed25519 github@${{ secrets.SERVER_HOST }} \
+          ssh -i -p 4604 ~/.ssh/id_ed25519 github@${{ secrets.SERVER_HOST }} \
             "sudo chown -R rxt:rxt /srv/rxtrn && sudo chmod -R 755 /srv/rxtrn"
 
       - name: Restart Service
         run: |
-          ssh -i ~/.ssh/id_ed25519 github@${{ secrets.SERVER_HOST }} \
+          ssh -i -p 4604 ~/.ssh/id_ed25519 github@${{ secrets.SERVER_HOST }} \
             "sudo systemctl restart rextongaming.service"

@@ -35,7 +35,7 @@ const readDirectoryProperties = readDirectory.map(e => ({
 }))
 Bun.write(Bun.stdout, `
     ${process.cwd()}
-    ${JSON.stringify(readDirectoryProperties)}
+    ${JSON.stringify(readDirectoryProperties, null, 4)}
 
     -=-=-= BUILD OUTPUTS -=-=-=-
            ----CLIENT----

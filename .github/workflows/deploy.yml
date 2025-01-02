@@ -40,7 +40,7 @@ jobs:
           rsync -az --delete \
             -e "ssh -p 4604" \
             --rsync-path="sudo rsync" \
-            ./app.js \
+            ./dist/app.js \
             github@${{ secrets.SERVER_HOST }}:/srv/rxtrn
 
       - name: Fix Ownership

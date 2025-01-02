@@ -16,8 +16,13 @@ Bun.serve({
                         <h1> welcome to rexton gaming 😎 </h1>
                     </body>
                 </html>
-            `)
+            `, {
+                headers: {
+                    "Content-Type": "text/html"
+                }
+            })
         }
+        return new Response("Not found", { status: 404 })
     },
     websocket: {
         open(ws) {

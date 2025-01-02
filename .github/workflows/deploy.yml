@@ -39,7 +39,7 @@ jobs:
         run: |
           rsync -az --delete --rsync-path="sudo rsync" \
             ./dist/ \
-            github@${{ secrets.SERVER_HOST }}:/srv/myapp
+            github@${{ secrets.SERVER_HOST }}:/srv/rxtrn
 
       - name: Fix Ownership
         run: |
@@ -49,4 +49,4 @@ jobs:
       - name: Restart Service
         run: |
           ssh -i ~/.ssh/id_ed25519 github@${{ secrets.SERVER_HOST }} \
-            "sudo systemctl restart myapp.service"
+            "sudo systemctl restart rextongaming.service"

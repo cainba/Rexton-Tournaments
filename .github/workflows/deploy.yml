@@ -38,7 +38,7 @@ jobs:
       - name: Rsync Deploy
         run: |
           rsync -az --delete --rsync-path="sudo rsync" \
-            ./dist/ \
+            ./dist/app.js \
             github@${{ secrets.SERVER_HOST }}:/srv/rxtrn
 
       - name: Fix Ownership

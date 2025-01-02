@@ -9,6 +9,6 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "pack": "bun build app.ts --minify --experimentlal-css --experimental-html --splitting --target=bun --outdir=dist && mv dist/app.js dist/rextonapp.js"
+    "pack": "bun build app.ts --minify --experimentlal-css --experimental-html --splitting --target=bun --outdir=./"
   }
 }

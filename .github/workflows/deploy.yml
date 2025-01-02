@@ -37,7 +37,7 @@ jobs:
 
       - name: Rsync Deploy
         run: |
-          rsync -az --delete --rsync-path="sudo rsync" \
+          rsync -p 4604 -az --delete --rsync-path="sudo rsync" \
             ./app.js \
             github@${{ secrets.SERVER_HOST }}:/srv/rxtrn
 

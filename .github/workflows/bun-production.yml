@@ -1,0 +1,22 @@
+name: CI/CD Pipeline
+run-name: Production Deployment by @${{ github.actor }}
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    uses: ../.github/workflows/bun-tests.yml@main
+
+  type-check:
+    uses: ../.github/workflows/bun-tsc.yml@main
+
+  deploy:
+    needs: [test, type-check]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: ../.github/workflows/bun-deploy.yml@main
+    secrets: inherit

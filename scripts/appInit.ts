@@ -1,4 +1,5 @@
 import { type BuildOutput, type BuildConfig } from "bun"
+import { randomUUID } from "node:crypto"
 import { readdir } from "node:fs/promises"
 const clientBuildConfig: BuildConfig = {
     entrypoints: ["src/public/index.html"],
@@ -10,7 +11,7 @@ const clientBuildConfig: BuildConfig = {
     format: "esm",
     minify: true
 }
-
+randomUUID({ "disableEntropyCache": true })
 const serverBuildConfig: BuildConfig = {
     entrypoints: ["src/server/app.ts"],
     outdir: "./dist",

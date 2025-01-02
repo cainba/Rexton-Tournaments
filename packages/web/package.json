@@ -1,0 +1,21 @@
+{
+    "name": "@rexton/web",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "bun build.ts",
+        "dev": "bun dev",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@rexton/shared": "workspace:*",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0"
+    }
+}

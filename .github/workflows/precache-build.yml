@@ -1,0 +1,26 @@
+name: Prebuild
+run-name: Prebuild by @${{ github.actor }}
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  prebuild:
+    runs-on: ubuntu-24.04
+    if: github.base_ref == 'development'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+            bun-version: "canary"
+
+      - name: Cache Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .bun
+            dist
+          key: ${{ runner.os }}-build-${{ github.head_ref }}-${{ hashFiles('**/bun.lockb') }}
+
+      - name: Install Dependencies
+        run: bun install

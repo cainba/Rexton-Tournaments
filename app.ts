@@ -10,13 +10,7 @@ Bun.serve({
         const reqPATH = reqURL.pathname
         const reqHEADERS = request.headers.toJSON()
         if (reqPATH === "/") {
-            return new Response(`<!DOCTYPE html>
-                <html lang='en'>
-                    <body>
-                        <h1> welcome to rexton gaming 😎 </h1>
-                    </body>
-                </html>
-            `, {
+            return new Response(Bun.file("./src/client/index.html"), {
                 headers: {
                     "Content-Type": "text/html"
                 }

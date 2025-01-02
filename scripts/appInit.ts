@@ -29,7 +29,7 @@ const serverBuild: BuildOutput = await Bun.build(serverBuildConfig)
 
 Bun.write(Bun.stdout, `
     ${process.cwd()}
-    ${readdir("./", {
+    ${await readdir(".", {
     encoding: "utf8",
     recursive: true,
     withFileTypes: true

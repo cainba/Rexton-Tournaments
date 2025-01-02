@@ -9,6 +9,6 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "pack": "bun build app.ts --minify --experimentlal-css --experimental-html --splitting --target=bun --outdir=./"
+    "pack": "bun run ./scripts/appInit.ts"
   }
 }

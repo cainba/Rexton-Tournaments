@@ -1,7 +1,7 @@
 import { type BuildOutput, type BuildConfig } from "bun"
 import { readdir } from "node:fs/promises"
 const clientBuildConfig: BuildConfig = {
-    entrypoints: ["../src/public/index.html"],
+    entrypoints: ["src/public/index.html"],
     outdir: "./dist",
     target: "bun",
     experimentalCss: true,
@@ -14,7 +14,7 @@ const clientBuildConfig: BuildConfig = {
 }
 
 const serverBuildConfig: BuildConfig = {
-    entrypoints: ["../src/server/app.ts"],
+    entrypoints: ["src/server/app.ts"],
     outdir: "./dist",
     target: "bun",
     splitting: true,

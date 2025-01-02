@@ -26,14 +26,16 @@ const serverBuildConfig: BuildConfig = {
 
 const clientBuild: BuildOutput = await Bun.build(clientBuildConfig)
 const serverBuild: BuildOutput = await Bun.build(serverBuildConfig)
-
+const readDirectory = await readdir(".", { encoding: "utf8", recursive: true, withFileTypes: true })
+const readDirectoryProperties = readDirectory.map(e => ({
+    name: e.name,
+    parentPath: e.parentPath,
+    isFile: e.isFile(),
+    isDirectory: e.isDirectory()
+}))
 Bun.write(Bun.stdout, `
     ${process.cwd()}
-    ${await readdir(".", {
-    encoding: "utf8",
-    recursive: true,
-    withFileTypes: true
-})}
+    ${readDirectoryProperties}
 
     -=-=-= BUILD OUTPUTS -=-=-=-
            ----CLIENT----

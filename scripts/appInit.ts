@@ -28,7 +28,7 @@ const clientBuild: BuildOutput = await Bun.build(clientBuildConfig)
 const serverBuild: BuildOutput = await Bun.build(serverBuildConfig)
 
 Bun.write(Bun.stdout, `
-    ${process.cwd}
+    ${process.cwd()}
     ${readdir("./", {
     encoding: "utf8",
     recursive: true,

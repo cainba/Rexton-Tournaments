@@ -10,7 +10,7 @@ const clientBuildConfig: BuildConfig = {
     format: "esm",
     minify: true,
     footer: "//rextongaming.com -- by Bryce Cain",
-    banner: "------- BUILDING CLIENT --------"
+    banner: " === BUILDING CLIENT === "
 }
 
 const serverBuildConfig: BuildConfig = {
@@ -20,7 +20,7 @@ const serverBuildConfig: BuildConfig = {
     splitting: true,
     format: "esm",
     minify: true,
-    banner: "------- BUILLDING SERVER -------",
+    banner: "/* === BUILDING SERVER==== */",
     footer: "//rextongaming.com -- by Bryce Cain"
 }
 

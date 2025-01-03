@@ -1,0 +1,22 @@
+name: Check Types with TypeScript TSC
+run-name: Check Types by @${{ github.actor }}
+on:
+    pull_request:
+        branches:
+            - dev/**
+            - feature/**
+            - hotfix/**
+
+jobs:
+    type-check:
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "canary"
+            - name: Install Dependencies
+              run: bun i
+
+            - name: Check Types
+              run: bun run tsc --noEmit

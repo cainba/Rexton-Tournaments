@@ -1,0 +1,30 @@
+{
+  "name": "rxt",
+  "module": "app.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "pack": "bun run scripts/build.ts",
+    "rxt:clean:dist": "rm -rf dist",
+    "rxt:clean:node_modules": "rm bun.lockb && rm -rf node_modules",
+    "rxt:clean:all": "bun rxt:clean:dist && bun rxt:clean:node_modules && bun i -f --no-summary --no-progress --no-cache",
+    "dev": "bun run scripts/dev.ts",
+    "test": "bun run scripts/test.ts",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@types/bun": "latest",
+    "@types/node": "latest",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.17.0",
+    "typescript-eslint": "^8.19.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "workspaces": [
+    "src/packages/*"
+  ]
+}

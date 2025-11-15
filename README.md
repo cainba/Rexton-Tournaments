@@ -1,5 +1,9 @@
 # Rexton Tournaments
 
+||Repo Badges
+
+[![wakatime](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df.svg)](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df)
+
 ## What is Rexton Tournaments?
 
 Rexton Tournaments is a platform that allows Rexton gaming and public members to participate and compete in league of legends tournaments. The platform will allow for users to join tournaments created by the app's game masters. Tournaments can be configured to have different maps, game modes, and game rules.

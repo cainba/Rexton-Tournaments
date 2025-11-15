@@ -13,7 +13,8 @@
 		"git:sync": "bun scripts/branch.ts sync",
 		"git:feat": "bun scripts/branch.ts feat",
 		"git:finish": "bun scripts/branch.ts finish",
-		"git:commit": "bun scripts/branch.ts commit"
+		"git:commit": "bun scripts/branch.ts commit",
+		"git:push": "bun scripts/branch.ts push"
 	},
 	"prettier": {
 		"arrowParens": "always",

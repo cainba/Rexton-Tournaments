@@ -103,6 +103,18 @@ async function commit(message: string, path = ".") {
 	)
 }
 
+/**
+ * @function push
+ * @description Pushes any commited changes on the current branch
+ */
+async function push() {
+	const currentBranch = (await $`git branch --show-current`.text()).trim()
+	console.log(`Push commited changes to ${currentBranch}?`)
+	if (!confirm()) return
+	await $`git push origin ${currentBranch}`
+	console.log(`✓ Pushed ${currentBranch}`)
+}
+
 const args = Bun.argv.slice(2) //parses args from command line
 const cmd = required(args[0], "command") //ensures command is provided
 const branchName = required(args[1], "branch name") //ensures branch name is provided
@@ -118,6 +130,9 @@ switch (cmd) {
 		break
 	case "sync":
 		await sync()
+		break
+	case "push":
+		await push()
 		break
 	case "pr":
 		await createPR(targetBranch)

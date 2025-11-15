@@ -1,2 +1,32 @@
 logLevel="error"
 telemetry = false
+
+[console]
+depth = 5
+
+[test]
+root = "__tests__"
+smol = false
+test.coverage = true
+test.coverageThreshold = 0.8
+coverageSkipTestFiles = false
+coverageReporter = ["text"]
+coverageDir = "coverage"
+randomize = true
+seed = 24674313583
+rerunEach = 2
+
+[install]
+optional = false
+dev = true
+peer = true
+saveTextLockFile = false
+auto = "auto"
+linkWorkspacePackages = true
+
+[debug]
+editor = "zed"
+
+[run]
+shell = "bun"
+bun = true

@@ -115,6 +115,19 @@ async function push() {
 	console.log(`✓ Pushed ${currentBranch}`)
 }
 
+/**
+ * @function pull
+ * @description Pulls any changes from the current branch
+ * @returns void
+ */
+async function pull() {
+	const currentBranch = (await $`git branch --show-current`.text()).trim()
+	console.log(`Pull changes from ${currentBranch}?`)
+	if (!confirm()) return
+	await $`git pull origin ${currentBranch}`
+	console.log(`✓ Pulled ${currentBranch}`)
+}
+
 const args = Bun.argv.slice(2) //parses args from command line
 const cmd = required(args[0], "command") //ensures command is provided
 const branchName = required(args[1], "branch name") //ensures branch name is provided
@@ -133,6 +146,9 @@ switch (cmd) {
 		break
 	case "push":
 		await push()
+		break
+	case "pull":
+		await pull()
 		break
 	case "pr":
 		await createPR(targetBranch)

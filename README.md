@@ -1,1 +1,1 @@
-[![Deploy](https://github.com/cainba/Rexton-Tournaments/actions/workflows/deploy.yml/badge.svg)](https://github.com/cainba/Rexton-Tournaments/actions/workflows/deploy.yml)
+[![wakatime](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df.svg)](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df)

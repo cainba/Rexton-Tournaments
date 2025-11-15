@@ -1,7 +1,6 @@
 # Rexton Tournaments
 
-||Repo Badges
-
+### Repo Badges    
 [![wakatime](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df.svg)](https://wakatime.com/badge/user/018e1bdd-f81f-44b6-8c0c-f84f0d128ab6/project/e3fce851-d054-4ce1-b82d-d55e4dee15df)
 
 ## What is Rexton Tournaments?
@@ -14,11 +13,11 @@ This code is for the web application that powers Rexton Tournaments. It includes
 
 ## Is my account secure if the app is open source?
 
-Yes. The app uses security measures to protect user data and game information integrity. It will only continue to improve and does not "give away" any information unauthorized parties can exploit directly.
+Yes. While nothing is 100% secure, the app uses security measures to protect user data and game information integrity. It will only continue to improve and does not "give away" any information unauthorized parties can exploit directly.
 
 ## How can I contribute/test as a tester?
 
-[Discord](https://discord.gg/YjMM3qFwr7)
+[Join The Discord](https://discord.gg/YjMM3qFwr7)    
 join the discord and watch any testing updates I push out. Instructions will be posted here in the discussions and on discord via general channel.
 
 

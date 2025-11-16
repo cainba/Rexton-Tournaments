@@ -7,6 +7,16 @@ export default tseslint.config(
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     {
+        ignores: [
+            "**/dist/**",
+            "**/node_modules/**",
+            "**/types/**",
+            "**/*.config.js",
+            "**/*.tsbuildinfo",
+            "scripts/**"
+        ]
+    },
+    {
         plugins: {
             "@stylistic": stylistic
         },
@@ -63,7 +73,7 @@ export default tseslint.config(
             // Error Prevention Rules
             // These rules help catch common mistakes
             "@typescript-eslint/no-misused-promises": "error",
-            "@typescript-eslint/no-throw-literal": "error",
+            "@typescript-eslint/only-throw-error": "error",
             "@typescript-eslint/no-unnecessary-type-arguments": "error",
             "@typescript-eslint/prefer-includes": "error",
 

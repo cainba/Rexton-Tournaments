@@ -10,26 +10,14 @@
     "module": "ESNext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
     "paths": {
-      "@packages/*": [
-        "packages/*"
-      ],
-      "@packages/server/*": [
-        "packages/server/*",
-        "package/server/package.json"
-      ],
-      "@packages/shared/*": [
-        "packages/shared/*",
-        "package/shared/package.json"
-      ],
-      "@packages/web/*": [
-        "packages/web/*",
-        "package/web/package.json"
-      ]
+      "@rexton/shared": ["packages/shared/src"],
+      "@rexton/web": ["packages/web/src"],
+      "@rexton/server": ["packages/server/src"]
     },
     "strict": true,
     "noImplicitAny": true,
@@ -46,7 +34,7 @@
     "exactOptionalPropertyTypes": true,
     "allowJs": true,
     "checkJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "skipLibCheck": true,
     "sourceMap": true,
     "declarationMap": true,
@@ -57,9 +45,7 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "declarationDir": "./types"
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src/**/**/*.ts",

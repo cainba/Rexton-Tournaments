@@ -10,6 +10,13 @@
         "start": "bun dist/app.js"
     },
     "dependencies": {
-        "@rexton/shared": "workspace:*"
+        "@rexton/shared": "file:../shared",
+        "@rexton/web": "file:../web",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0"
     }
 }

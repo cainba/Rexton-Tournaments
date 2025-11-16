@@ -8,3 +8,5 @@ build
 dist
 docs
 node_modules
+types
+*.tsbuildinfo
